@@ -116,9 +116,10 @@ with pantry_tab:
                 if key not in st.session_state:
                     st.session_state[key] = item["quantity"]
                 left, right = st.columns([3, 1])
-                # Usamos markdown para agregar un margen superior al texto y alinearlo con la caja del número
-                left.markdown(f"<div style='margin-top: 10px;'>{item['name']}</div>", unsafe_allow_html=True)
-                right.number_input("Cantidad", min_value=0, step=1, key=key, label_visibility="collapsed", on_change=set_quantity, args=(item["id"],), )
+                        # Quitamos el espacio por defecto que deja Streamlit abajo del texto
+                        left.markdown(f"<p style='margin-bottom: 0px;'>{item['name']}</p>", unsafe_allow_html=True)
+                        right.number_input("Cantidad", min_value=0, step=1, key=key, label_visibility="collapsed", on_change=set_quantity, args=(item["id"],), )
+                        right.number_input("Cantidad", min_value=0, step=1, key=key, label_visibility="collapsed", on_change=set_quantity, args=(item["id"],), )
                 st.divider()
     st.subheader("Agregar producto")
     with st.form("new_product", clear_on_submit=True):
