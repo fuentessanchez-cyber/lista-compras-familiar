@@ -13,18 +13,22 @@ st.markdown(
     [data-testid="stNumberInput"] input {font-size: 1.05rem;}
     .done {color: #777; text-decoration: line-through;}
     
-    /* Forzar que el producto y la cantidad sigan en 1 línea en celulares */
-    @media (max-width: 680px) {
+    /* Alinear verticalmente y juntar los productos */
+    [data-testid="stHorizontalBlock"] {
+        align-items: center !important;
+    }
+    
+    /* Forzar 1 línea abarcando cualquier tamaño de celular o tablet */
+    @media (max-width: 992px) {
         [data-testid="stHorizontalBlock"] {
             flex-direction: row !important;
-            align-items: center !important;
         }
-        [data-testid="column"]:nth-child(1) {
+        [data-testid="column"]:nth-of-type(1) {
             width: 75% !important;
             flex: 1 1 75% !important;
             min-width: 0 !important;
         }
-        [data-testid="column"]:nth-child(2) {
+        [data-testid="column"]:nth-of-type(2) {
             width: 25% !important;
             flex: 1 1 25% !important;
             min-width: 0 !important;
