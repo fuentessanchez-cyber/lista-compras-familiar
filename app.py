@@ -94,11 +94,11 @@ with pantry_tab:
                 # Keep a changed value in the browser, otherwise hydrate from Sheets.
                 if key not in st.session_state:
                     st.session_state[key] = item["quantity"]
-              left, right = st.columns([3, 1])
-# Usamos markdown para agregar un margen superior al texto y alinearlo con la caja del número
-left.markdown(f"<div style='margin-top: 10px;'>{item['name']}</div>", unsafe_allow_html=True)
-right.number_input("Cantidad", min_value=0, step=1, key=key, label_visibility="collapsed", on_change=set_quantity, args=(item["id"],), )
-    st.divider()
+                left, right = st.columns([3, 1])
+                # Usamos markdown para agregar un margen superior al texto y alinearlo con la caja del número
+                left.markdown(f"<div style='margin-top: 10px;'>{item['name']}</div>", unsafe_allow_html=True)
+                right.number_input("Cantidad", min_value=0, step=1, key=key, label_visibility="collapsed", on_change=set_quantity, args=(item["id"],), )
+                st.divider()
     st.subheader("Agregar producto")
     with st.form("new_product", clear_on_submit=True):
         name = st.text_input("Nombre del producto", placeholder="Ej.: Ibuprofeno")
