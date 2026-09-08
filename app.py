@@ -13,27 +13,16 @@ st.markdown(
     [data-testid="stNumberInput"] input {font-size: 1.05rem;}
     .done {color: #777; text-decoration: line-through;}
     
-    /* Obligar a Streamlit a mantener 1 línea en celulares */
-    @media (max-width: 680px) {
-        div[data-testid="stHorizontalBlock"] {
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-        }
-        /* Apuntamos al nombre nuevo (stColumn) y al viejo (column) por seguridad */
-        div[data-testid="stColumn"]:nth-child(1), div[data-testid="column"]:nth-child(1) {
-            width: 75% !important;
-            flex: 1 1 75% !important;
-            min-width: 0 !important;
-        }
-        div[data-testid="stColumn"]:nth-child(2), div[data-testid="column"]:nth-child(2) {
-            width: 25% !important;
-            flex: 1 1 25% !important;
-            min-width: 0 !important;
-        }
+    /* Forzar siempre 1 sola línea (PC y Celular) sin romper los anchos de Streamlit */
+    div[data-testid="stHorizontalBlock"] {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
     }
     </style>""",
     unsafe_allow_html=True,
 )
+
 
 
 def setting(name: str) -> str:
