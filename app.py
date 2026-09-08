@@ -13,17 +13,29 @@ st.markdown(
     [data-testid="stNumberInput"] input {font-size: 1.05rem;}
     .done {color: #777; text-decoration: line-through;}
     
-    /* Forzar siempre 1 sola línea (PC y Celular) sin romper los anchos de Streamlit */
-    div[data-testid="stHorizontalBlock"] {
+    /* Alinear en 1 línea SOLAMENTE los productos dentro de las categorías */
+    [data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] {
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         align-items: center !important;
     }
+    
+    /* Dar 70% de espacio al nombre del producto */
+    [data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] > div:nth-child(1) {
+        width: 70% !important;
+        flex: 1 1 70% !important;
+        min-width: 0 !important;
+    }
+    
+    /* Dar 30% de espacio a la caja de cantidad para que los botones no se salgan */
+    [data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] > div:nth-child(2) {
+        width: 30% !important;
+        flex: 1 1 30% !important;
+        min-width: 0 !important;
+    }
     </style>""",
     unsafe_allow_html=True,
 )
-
-
 
 def setting(name: str) -> str:
     """Read a value from Streamlit secrets first, then environment variables."""
