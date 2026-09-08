@@ -12,31 +12,17 @@ st.markdown(
     .block-container {max-width: 680px; padding-top: 1rem; padding-bottom: 3rem;}
     [data-testid="stNumberInput"] input {font-size: 1.05rem;}
     .done {color: #777; text-decoration: line-through;}
-    
-    /* Alinear verticalmente y juntar los productos */
-    [data-testid="stHorizontalBlock"] {
-        align-items: center !important;
-    }
-    
-    /* Forzar 1 línea abarcando cualquier tamaño de celular o tablet */
-    @media (max-width: 992px) {
-        [data-testid="stHorizontalBlock"] {
-            flex-direction: row !important;
-        }
-        [data-testid="column"]:nth-of-type(1) {
-            width: 75% !important;
-            flex: 1 1 75% !important;
-            min-width: 0 !important;
-        }
-        [data-testid="column"]:nth-of-type(2) {
-            width: 25% !important;
-            flex: 1 1 25% !important;
-            min-width: 0 !important;
-        }
-    }
+    </style>""",
+    unsafe_allow_html=True,
+)st.markdown(
+    """<style>
+    .block-container {max-width: 680px; padding-top: 1rem; padding-bottom: 3rem;}
+    [data-testid="stNumberInput"] input {font-size: 1.05rem;}
+    .done {color: #777; text-decoration: line-through;}
     </style>""",
     unsafe_allow_html=True,
 )
+
 
 def setting(name: str) -> str:
     """Read a value from Streamlit secrets first, then environment variables."""
@@ -116,11 +102,11 @@ with pantry_tab:
                 if key not in st.session_state:
                     st.session_state[key] = item["quantity"]
 
-                    left, right = st.columns([3, 1])
+                    # Alineación vertical nativa de Streamlit
+                    left, right = st.columns([3, 1], vertical_alignment="center")
                     # Quitamos el espacio por defecto que deja Streamlit abajo del texto
                     left.markdown(f"<p style='margin-bottom: 0px;'>{item['name']}</p>", unsafe_allow_html=True)
                     right.number_input("Cantidad", min_value=0, step=1, key=key, label_visibility="collapsed", on_change=set_quantity, args=(item["id"],), )
-             
                
                 st.divider()
                 
