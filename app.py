@@ -20,12 +20,25 @@ st.markdown(
         align-items: center !important;
     }
     
-    /* Dar 70% de espacio al nombre del producto */
+    /* Dejar el 55% del espacio para el nombre del producto */
     [data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] > div:nth-child(1) {
-        width: 70% !important;
-        flex: 1 1 70% !important;
+        width: 55% !important;
+        flex: 1 1 55% !important;
         min-width: 0 !important;
     }
+    
+    /* Dar el 45% a la cantidad y forzar un ancho mínimo para que NO se oculten los botones + y - */
+    [data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] > div:nth-child(2) {
+        width: 45% !important;
+        flex: 1 1 45% !important;
+        min-width: 120px !important; 
+    }
+    </style>""",
+    unsafe_allow_html=True,
+)
+
+
+
     
     /* Dar 30% de espacio a la caja de cantidad para que los botones no se salgan */
     [data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] > div:nth-child(2) {
