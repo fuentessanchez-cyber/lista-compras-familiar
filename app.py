@@ -1,9 +1,7 @@
 import os
 from collections import defaultdict
-
 import requests
 import streamlit as st
-
 
 st.set_page_config(page_title="Lista familiar", page_icon="🛒", layout="centered")
 
@@ -32,19 +30,6 @@ st.markdown(
         width: 45% !important;
         flex: 1 1 45% !important;
         min-width: 120px !important; 
-    }
-    </style>""",
-    unsafe_allow_html=True,
-)
-
-
-
-    
-    /* Dar 30% de espacio a la caja de cantidad para que los botones no se salgan */
-    [data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] > div:nth-child(2) {
-        width: 30% !important;
-        flex: 1 1 30% !important;
-        min-width: 0 !important;
     }
     </style>""",
     unsafe_allow_html=True,
