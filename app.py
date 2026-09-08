@@ -14,13 +14,6 @@ st.markdown(
     .done {color: #777; text-decoration: line-through;}
     </style>""",
     unsafe_allow_html=True,
-)st.markdown(
-    """<style>
-    .block-container {max-width: 680px; padding-top: 1rem; padding-bottom: 3rem;}
-    [data-testid="stNumberInput"] input {font-size: 1.05rem;}
-    .done {color: #777; text-decoration: line-through;}
-    </style>""",
-    unsafe_allow_html=True,
 )
 
 
